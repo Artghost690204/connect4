@@ -1,0 +1,13 @@
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class RandomAITest {
+    @Test
+    public void testRandomMove() {
+        RandomAI ai = new RandomAI();
+        int[][] board = new int[6][7];
+        int move = ai.makeMove(board);
+        assertTrue(move >= 0 && move < 7);
+    }
+}

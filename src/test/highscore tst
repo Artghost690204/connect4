@@ -1,0 +1,12 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class HighscoreManagerTest {
+    @Test
+    public void testHighscoreSaving() {
+        HighscoreManager manager = new HighscoreManager();
+        manager.addHighscore("Player", 10);
+        manager.loadScores();
+        assertTrue(manager.getScores().contains("Player: 10"));
+    }
+}
