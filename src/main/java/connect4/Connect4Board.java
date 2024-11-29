@@ -1,9 +1,13 @@
 package connect4;
 
+import javax.swing.*;
 import java.util.Arrays;
 
 public class Connect4Board {
     private final int[][] board = new int[6][7];
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
 
     public boolean makeMove(int column, int player) {
         if (column < 0 || column >= 7 || board[0][column] != 0) {
@@ -56,7 +60,7 @@ public class Connect4Board {
     public void printBoard() {
         for (int[] row : board) {
             for (int cell : row) {
-                System.out.print(cell == 1 ? "Y " : cell == 2 ? "R " : ". ");
+                System.out.print(cell == 1 ? ANSI_RED+ "X " + ANSI_RESET : cell == 2 ? ANSI_YELLOW + "O " + ANSI_RESET : "_ "  );
             }
             System.out.println();
         }

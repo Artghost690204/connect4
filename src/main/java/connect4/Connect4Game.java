@@ -10,7 +10,7 @@ public class Connect4Game {
         HighscoreManager highscoreManager = new HighscoreManager();
 
         System.out.println("Üdv a Connect 4 játékban!");
-        System.out.println("Az első játékos te vagy (sárga), a második az AI (piros).");
+        System.out.println("Az első játékos te vagy (X), a második az AI (O).");
         boolean isPlayerTurn = true;
         int winner = -1;
 
