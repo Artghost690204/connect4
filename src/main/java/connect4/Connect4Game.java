@@ -8,8 +8,12 @@ public class Connect4Game {
         Connect4Board board = new Connect4Board();
         RandomAI ai = new RandomAI();
         HighscoreManager highscoreManager = new HighscoreManager();
+        highscoreManager.loadScores(); // Betöltjük a meglévő highscore-okat
 
-        System.out.println("Üdv a Connect 4 játékban!");
+        System.out.print("Add meg a neved: ");
+        String playerName = scanner.nextLine();
+
+        System.out.println("Üdvözlünk a Connect 4 játékban, " + playerName + "!");
         System.out.println("Az első játékos te vagy (X), a második az AI (O).");
         boolean isPlayerTurn = true;
         int winner = -1;
@@ -37,17 +41,16 @@ public class Connect4Game {
 
         board.printBoard();
         if (winner == 1) {
-            System.out.println("Gratulálok, nyertél!");
-            highscoreManager.addHighscore("Player", 1);
+            System.out.println("Gratulálok, " + playerName + ", nyertél!");
+            highscoreManager.addWin(playerName); // Hozzáadjuk a győzelmet
         } else if (winner == 2) {
             System.out.println("Az AI nyert!");
-            highscoreManager.addHighscore("AI", 1);
+            highscoreManager.addWin("AI");
         } else {
             System.out.println("Döntetlen!");
         }
 
-        System.out.println("Highscore-ok:");
-        highscoreManager.loadScores();
-        highscoreManager.getScores().forEach(System.out::println);
+        // Kiírjuk a highscores-t
+        highscoreManager.printScores();
     }
 }

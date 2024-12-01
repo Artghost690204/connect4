@@ -1,1 +1,2 @@
-Player: 1
+Player:1
+Paal:2
